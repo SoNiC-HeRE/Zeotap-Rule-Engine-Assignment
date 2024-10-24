@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rule Engine Interface - Create and evaluate rules with JSON data">
+    <title>Rule Engine</title>
+    <!-- Modern CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Rule Engine</h1>
+            <p class="subtitle">Create and evaluate rules using JSON data</p>
+        </header>
+        <section class="card">
+            <form id="create-rule-form" class="form-section">
+                <div class="form-group">
+                    <label for="rule" class="label">Create Rule</label>
+                    <input
+                        type="text"
+                        id="rule"
+                        name="rule"
+                        placeholder="Enter your rule expression"
+                        required
+                        class="input-field"
+                    >
+                </div>
+            </form>
+            <form id="evaluate-rule-form" class="form-section">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="ast" class="label">AST (JSON format)</label>
+                        <textarea
+                            id="ast"
+                            name="ast"
+                            placeholder="Enter AST in JSON format"
+                            required
+                            class="input-field"
+                        ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="data" class="label">Data (JSON format)</label>
+                        <textarea
+                            id="data"
+                            name="data"
+                            placeholder="Enter data in JSON format"
+                            required
+                            class="input-field"
+                        ></textarea>
+                    </div>
+                </div>
+            </form>
+            <div class="button-container">
+                <button form="create-rule-form" type="submit" class="btn btn-primary">Create Rule</button>
+                <button form="evaluate-rule-form" type="submit" class="btn btn-primary">Evaluate Rule</button>
+            </div>
+        </section>
+        <section id="result" class="result-section" aria-live="polite"></section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
